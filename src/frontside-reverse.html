@@ -1,0 +1,65 @@
+<!-- 反転面表のテンプレート -->
+<section>
+    <!-- ====================== ====================== -->
+    {{#Add Reverse}}
+    <!-- ====================== ====================== -->
+
+    <!-- ====================== カテゴリー情報 ====================== -->
+    <div>
+        <table class="infobox" style="table-layout: fixed;">
+            <tr class="cellbox">
+                <td>
+                    <span class="whatIsSubdeck">
+                        {{Subdeck}}
+                    </span>
+                </td>
+                <td style="text-align: center;">
+                    <span class="whenCreated no_br">
+                        {{CreatedDay}}
+                    </span>
+                </td>
+                <td>
+                    <span class="cInformation no_br" style="font-weight: bold; color: red;">
+                        {{ImpPoint}}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ====================== テーブル ====================== -->
+    <br>
+    <div class="table-scroll">
+        <table style="font-size: 17px;">
+            <tr>
+                <th>日語</th>
+                <td>{{Meaning_jp}}</td>
+            </tr>
+            <tr>
+                <th>英語</th>
+                <td>{{Meaning_en}}</td>
+            </tr>
+            <tr>
+                <th>品詞</th>
+                <td>{{#WordType}}({{WordType}}){{/WordType}} {{#DetailType}}[{{DetailType}}]{{/DetailType}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- ====================== 表記 ====================== -->
+    <span class="managementNumber">Reversed</span>
+    <br><br>
+    <!-- ====================== タイピングの判定 ====================== -->
+    {{#Typing??}}
+    <div id="typing">
+        {{type:Word}}
+    </div>
+    {{/Typing??}}
+
+
+    <!-- ====================== 終わり ====================== -->
+    {{/Add Reverse}}
+    <!-- ====================== 終わり ====================== -->
+
+</section>

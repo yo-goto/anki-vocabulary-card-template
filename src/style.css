@@ -1,0 +1,1522 @@
+            @import url("_editor_button_styles.css");
+
+            /* カスタムCSSプロパティ ankiでも利用可能*/
+            :root {
+                /* 基本カラー */
+                --text-color-lightmode: black;
+                /* ライトモード: フォントカラー */
+                --background-image-lightmode: url("_cardboard-flat_forBackgroundImaga.png");
+                /* ライトモード: 背景画像(背景画像を入れたい場合にはメディアコレクションにフィアルを入れてurlにそのファイル名を書く) */
+                --background-color-darkmode: #1c1c1e;
+                /* ダークモード:背景色 */
+                --background-image-darkmode: none;
+                /* ダークモード: 背景画像 */
+
+                /* 主要なフォントファミリー */
+                --font-family-card: Helvetica, Osaka-Mono, Osaka;
+                --font-family-Tag: Futura, Menlo, Osaka;
+                --font-family-managementNumber: Menlo;
+                --font-family-fieldCategory: Osaka;
+                --font-family-searchword: baskerville, Osaka;
+                --font-family-whenCreated: georgia;
+                --font-family-wordclass: 'Fira code', Menlo, CharisSIL, Osaka;
+                --font-family-comment: Osaka;
+                --font-family-spellfont: georgia;
+                --font-family-theNumOfMean: Georgia;
+                --font-family-grammar: 'Fira code', Osaka;
+                --font-family-exampleSentence: Times, ChrisSIL, Osaka;
+                --font-family-similar: 'Fira code', Menlo, CharisSIL, Osaka;
+                --font-family-symbol: CharisSIL, GentiumPlus;
+                --font-family-collection: Menlo, CharisSIL, Osaka;
+                
+                /* ヒントボタンとコピーボタン */
+                --button-color-left: #077A9E;
+                --button-color-text: #077A9E;
+                --button-color-background: #f7f7f7;
+                --button-color-box-shadow: rgba(0, 0, 0, 0.29);
+                --button-color-hover-text: #000066;
+                --button-color-hover-background: #ffffff;
+                --button-color-hover-left: #5cd40c;
+
+                /* 適当なテーマカラー */
+                --my-coler-1: #077A9E;
+                --my-color-2: #C695C6;
+                --my-color-3: #5EB3B3;
+                --my-color-4: IndianRed;
+                --my-color-5: MediumSeaGreen;
+                --my-color-6: #A3CA50;
+                --my-color-7: #F3CD53;
+                --my-color-8: #7750CA;
+                --my-color-9: #C33187;
+
+            }
+
+
+            /* ========================== カード全体､ダーク↓ ========================== */
+            .card {
+                font-family: var(--font-family-card);
+                font-size: 20px;
+                text-align: center;
+                color: var(--text-color-lightmode);
+                background-image: var(--background-image-lightmode);
+            }
+
+            .card.nightMode {
+                background-image: var(--background-image-darkmode);
+                background-color: var(--background-color-darkmode);
+            }
+
+            /* ========================== カード全体､ダーク↑ ========================== */
+
+
+
+
+            /* ========================== カードタイプ別↓ ========================== */
+            /* ===== Reversside ===== */
+            .reversedForward {
+                text-align: center;
+                font-size: 16px;
+            }
+
+            /* ===== Reversside ===== */
+            /* ===== clozeDeletion ===== */
+            .cloze {
+                font-weight: bold;
+                color: red;
+            }
+
+            .nightMode .cloze {
+                color: orange;
+            }
+
+            /* ===== clozeDeletion ===== */
+
+            /* ===== optional-reverse用 ===== */
+            #typing {
+                font-size: 18px;
+            }
+
+            /* =========== cloze =========== */
+            .cardAlignment {
+                text-align: left;
+            }
+
+            .title {
+                /* 問題のタイトル → ソート用 */
+                font-size: 18px;
+                text-align: center;
+            }
+
+            /* =========== cloze =========== */
+
+            /* ========================== カードタイプ別↑ ========================== */
+
+
+
+            /*====================== リセットcss↓ ======================*/
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            li {
+                margin: 0;
+            }
+
+            /*====================== リセットcss↑ ======================*/
+
+
+            /* ==================== スクロールバー↓ ==================== */
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            div.designLayoutBox::-webkit-scrollbar {
+                width: 0px;
+            }
+
+            div.designLayoutBox::-webkit-scrollbar-track {
+                background: #fff;
+                border: none;
+                border-radius: 10px;
+                box-shadow: inset 0 0 2px #777;
+            }
+
+            div.designLayoutBox::-webkit-scrollbar-thumb {
+                background: #777;
+                border-radius: 10px;
+                box-shadow: none;
+            }
+
+            /* ==================== スクロールバー↑ ==================== */
+
+
+            /* ========================== brとdiv無効スタイル↓ ========================== */
+            .no_br br {
+                display: none;
+            }
+
+            .no_div div {
+                display: inline;
+            }
+
+            div.normal_div {
+                display: block;
+            }
+
+            /* ========================== brとdiv無効スタイル↑ ========================== */
+
+
+
+            /* ========== 音声↓ =========== */
+            .replay-button svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .replay-button svg circle {
+                fill: white;
+            }
+
+            .replay-button svg path {
+                stroke: white;
+                fill: red;
+            }
+
+            .audio-btn {
+                vertical-align: 2px;
+            }
+
+            .mobile .replay-button svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .mobile #audio-btn {
+                vertical-align: -3px;
+            }
+
+            /* ========== 音声↑ =========== */
+
+
+            /*====================== 管理情報↓ ======================*/
+            .editableTag {
+                text-align: left;
+                font-family: var(--font-family-Tag);
+                font-weight: bold;
+                vertical-align: bottom;
+                font-size: 20px;
+                border: 1px solid;
+                border-radius: 5px;
+                margin: 0px 0px 10px 0px;
+                padding: 0px 0px 0px 10px;
+                vertical-align: bottom;
+                border-left: 5px solid #7750CA;
+            }
+
+            .realtags {
+                font-family: var(--font-family-Tag);
+                color: #7750CA;
+            }
+
+            .numberingset {
+                text-align: left;
+                opacity: 0.5;
+                padding-top: 2px;
+                padding-bottom: 0px;
+                margin: 0px;
+            }
+
+            .managementNumber {
+                font-family: var(--font-family-managementNumber);
+                text-align: center;
+                font-size: 20px;
+            }
+
+            .mainContents {
+                text-align: left;
+                font-size: 16px;
+                margin: 13px 0;
+            }
+
+            .mainContents .maru ol {
+                counter-reset: my-counter;
+                list-style: none;
+                padding: 0;
+            }
+
+            .mainContents .maru ol li {
+                margin-bottom: 0;
+                padding-left: 30px;
+                position: relative;
+            }
+
+            .mainContents .maru ol li:before {
+                content: counter(my-counter);
+                counter-increment: my-counter;
+                display: block;
+                float: left;
+                line-height: 18px;
+                margin-left: -25px;
+                text-align: center;
+                height: 18px;
+                width: 18px;
+                border-radius: 50%;
+                border: solid 1px black;
+            }
+
+            .nightMode .mainContents .maru ol li:before {
+                border: solid 1px white;
+            }
+
+            .mainContents.categorizeBox {
+                padding: 4px;
+                border: 1px dotted rgb(7, 122, 158);
+            }
+
+            .fieldCategory {
+                display: inline-block;
+                font-family: var(--font-family-fieldCategory);
+                font-size: 16px;
+                text-align: left;
+                margin-right: 5px;
+                margin-bottom: 2px;
+                font-size: 16px;
+                padding: 0px 5px 0px 5px;
+                border: 1px solid rgb(7, 122, 158);
+                border-radius: 3px;
+            }
+
+            .fieldCategory.typeS {
+                margin-left: 5px;
+            }
+
+            .fieldCategory.typeM {
+                font-family: Osaka, Helvetica;
+                margin-left: 10px;
+                margin-right: 0;
+                border: none;
+            }
+
+            .mgrForColon {
+                margin-left: 10px;
+                margin-right: 3px;
+            }
+
+            .inlineBLOCKsmall {
+                display: inline-block;
+                /* position: relative; */
+                width: 60px;
+                vertical-align: top;
+                padding: 0;
+                margin: 0;
+            }
+
+            .inlineBLOCKbig {
+                display: inline-block;
+                /* position: relative; */
+                width: 80%;
+                vertical-align: top;
+                padding: 0;
+                margin: 0 0 0 10px;
+            }
+
+            @media screen and (max-width:450px) {
+                .inlineBLOCKbig {
+                    width: 75%;
+                }
+            }
+
+            .cInformation {
+                font-size: 12px;
+                text-align: left;
+                font-family: helvetica;
+            }
+
+            .whenCreated {
+                font-family: var(--font-family-whenCreated);
+                font-size: 13px;
+                text-align: left;
+            }
+
+            .whatIsSubdeck {
+                font-family: helvetica;
+                font-size: 11px;
+            }
+
+
+            #concepts {}
+
+            #concepts2 {}
+
+            .tagFORM {
+                font-family: var(--font-family-Tag);
+                background-color: #6246ea;
+                color: #fffffe;
+                margin: 2px 0px 3px 4px;
+                padding: 0px 5px 0px 6px;
+                border-radius: 5px;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                display: inline-block;
+            }
+
+
+            .peripheral {
+                border: dashed 1px;
+                padding: 5px;
+                font-size: 14px;
+                border-radius: 8px;
+                overflow-wrap: break-word;
+                word-break: keep-all;
+                line-break: strict;
+                margin-top: 6px;
+            }
+
+            .wordclass {
+                font-family: var(--font-family-wordclass);
+            }
+
+
+            /* ============マテリアルデザインカード↓ ========== */
+            .rippleCards {
+                margin: 10px 0;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+                border-radius: 3px;
+                overflow: hidden;
+                overflow-x: hidden;
+                overflow-y: hidden;
+                position: relative;
+            }
+
+            .nightMode .rippleCards {
+                //background-color: #1C1C1C;
+                margin: 10px 0;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+                border-radius: 3px;
+                overflow: hidden;
+                overflow-x: hidden;
+                overflow-y: hidden;
+                position: relative;
+            }
+
+            .nightMode .overlay {
+                position: absolute;
+                /* Sit on top of the page content */
+                //display: none; /* Hidden by default */
+                width: 100%;
+                /* Full width (cover the whole page) */
+                height: 100%;
+                /* Full height (cover the whole page) */
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(255, 255, 255, 0.1);
+                /* Black background with opacity */
+                z-index: 2;
+                /* Specify a stack order in case you're using a different order for other elements */
+                cursor: pointer;
+                /* Add a pointer on hover */
+            }
+
+            .materialContents {
+                text-align: left;
+                font-size: 16px;
+                margin: 10px 0;
+                position: relative;
+                z-index: 5;
+            }
+
+            /* ============マテリアルデザインカード↑ ========== */
+
+
+
+
+
+            /*====================== 吹き出しコメント↓ ======================*/
+            .comment {
+                font-family: var(--font-family-comment);
+                position: relative;
+                top: -30px;
+                font-size: 15px;
+                color: rgba(203, 109, 227, 0.8);
+                text-align: left;
+                margin: 0;
+                padding: 0;
+                height: 25px; //border: solid 1px;
+            }
+
+            .balloon1-left {
+                position: relative;
+                display: inline-block;
+                margin: 1.5em 0 1.5em 15px;
+                padding: 10px 8px 10px 20px;
+                min-width: 100px;
+                max-width: 93%;
+                color: #555;
+                font-size: 17px;
+                background: #e0edff;
+                border-radius: 4px;
+            }
+
+            .balloon1-left:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -25px;
+                margin-top: -10px;
+                border: 10px solid transparent;
+                border-right: 15px solid #e0edff;
+            }
+
+            .balloon1-left p {
+                margin: 0;
+                padding: 0;
+            }
+
+            /*====================== 吹き出しコメント↑ ======================*/
+
+
+            /* ===========hr水平線スタイル↓=========== */
+            hr.style3 {
+                border-top: 1px dashed #8c8b8b;
+            }
+
+            /* ===========hr水平線スタイル↑=========== */
+
+
+            /*====================== 管理情報↑ ======================*/
+
+
+            /* =========== tablestyle↓ =========== */
+            table {
+                width: 100%;
+                border: solid 1px;
+                border-collapse: separate;
+                border-radius: 5px;
+                border-spacing: 0;
+            }
+
+            table th {
+                color: rgb(7, 122, 158);
+                background: hsla(0, 0%, 52%, 0.2);
+                text-align: center;
+            }
+
+            table th,
+            table td {
+                border-bottom: 1px solid;
+            }
+
+            table td {
+                border-left: 1px solid;
+            }
+
+            table th {
+                width: 10%;
+            }
+
+            .table-scroll {
+                overflow-x: auto;
+            }
+
+            table tr:first-child th {
+                border-radius: 5px 0 0 0;
+            }
+
+            table tr:first-child td {
+                border-radius: 0 5px 0 0;
+            }
+
+            table tr:last-child th {
+                border-bottom: none;
+                border-radius: 0 0 0 5px;
+            }
+
+            table tr:last-child td {
+                border-bottom: none;
+                border-radius: 0 0 5px 0;
+            }
+
+            table tr td:nth-child(1) {
+                border-left: none;
+            }
+
+
+            table.infobox {
+                table-layout: fixed;
+                border: solid 1px;
+            }
+
+            .cellbox td {
+                padding-top: 0;
+                padding-bottom: 0;
+                line-height: 1;
+            }
+
+            .blurBOX {
+                /* たぶんつかって無い */
+                position: fixed;
+                z-index: 100;
+                top: 0;
+                margin: 0 auto;
+                width: 90%;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+            }
+
+            .categorizeBoxTABLE {
+                table-layout: fixed;
+            }
+
+            .categorizeBoxTABLE th {
+                width: 50px;
+            }
+
+            .categorizeBoxTABLE td {
+                padding-left: 20px;
+                padding-right: 5px;
+            }
+
+            .taglist {
+                padding-top: 4px;
+                padding-bottom: 4px;
+            }
+
+
+            .normTABLE {
+                /* inline-block的な事やりたいなら使う */
+                table-layout: fixed;
+                border: hidden;
+                margin: 0;
+                padding: 0;
+            }
+
+            .normTABLE th {
+                color: unset;
+                /*セットしないよ*/
+                width: 45px;
+                background: none;
+                font-weight: normal;
+                text-align: left;
+                margin-right: 4px;
+                font-size: 16px;
+                padding: 0;
+            }
+
+            .nightMode .normTABLE th {
+                color: white;
+            }
+
+            .normTABLE td {
+                color: none;
+                padding: 0 5px 0 0;
+                border: hidden;
+            }
+
+            .normTABLE tr {
+                color: none;
+                padding: 0;
+                margin: 0;
+                border: hidden;
+                vertical-align: baseline;
+            }
+
+            .normTABLE.typeMENU {
+                padding: 0;
+            }
+
+            .typeMENU {
+                border-collapse: collapse;
+            }
+
+            .normTABLE.typeMENU td {
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+            .myTABLE table {
+                /*使い方::wrappingすることで上書きできる
+                <div class="myTABLE">
+                <table></table>
+                </div>
+                */
+                table-layout: auto !important;
+            }
+
+            .myTABLE table tr td:nth-child(1),
+            .myTABLE table tr th:nth-child(1) {
+                /*tableの第1列をまとめて指定(selector1, selector2でまとめる)
+                th:nth-child(1)で1列のthを指定
+                td:nth-child(1)で1列のtdを指定
+                その前のやつらは親子関係
+                !importantでスタイルの上書き最優先
+                */
+                width: 20% !important;
+                max-width: 30% !important;
+                padding-left: 10px !important;
+                padding-right: 5px !important;
+            }
+
+            .myTABLE table tr td:nth-child(2),
+            .myTABLE table tr th:nth-child(2) {
+                /*tableの第2列をまとめて指定*/
+                width: 80% !important;
+                padding-left: 10px !important;
+                padding-right: 5px !important;
+            }
+
+            .myTABLE tr:nth-child(2n+1) {
+                /*順番に色付け*/
+                background: #eee;
+                color: black;
+            }
+
+
+            /* =========== tablestyle↑ =========== */
+
+
+
+
+
+            /* =========== 引用↓ =========== */
+            blockquote.extrablock {
+                margin: 2px 5px 0 0px;
+                position: relative;
+                padding: 10px 15px 8px 20px;
+                box-sizing: border-box;
+                overflow: hidden;
+                border-left: 4px solid #077A9E;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+
+            }
+
+            blockquote.extrablock:before {
+                content: '';
+                background: white;
+                position: absolute;
+                filter: blur(8px) brightness(1.5);
+                opacity: 0.3;
+                /*半透明カラーの透明度*/
+                z-index: -1;
+                top: -5px;
+                left: -5px;
+                right: -5px;
+                bottom: -5px;
+                z-index: -1;
+            }
+
+            blockquote.twitter {}
+
+            .twitter-wrap {
+                padding: 0px 1px;
+                width: 100%;
+            }
+
+            /* =========== 引用↑ =========== */
+
+
+
+
+
+            /* =========== frame&button↓ =========== */
+            .frame {
+                width: 100%;
+                height: 400px;
+            }
+
+            .deletebox {
+                cursor: pointer;
+                outline: none;
+            }
+
+            #searchbtn {
+                border: solid 1px rgb(7, 122, 158);
+                border-radius: 0px;
+                width: 100%;
+                margin: 0xp;
+                padding: 4px 0px;
+            }
+
+            #etymobtn {
+                border: solid 1px rgb(7, 122, 158);
+                border-radius: 0px;
+                width: 100%;
+                margin: 0xp;
+                padding: 4px 0px;
+            }
+
+            .myButton {
+                margin: 5px;
+            }
+
+            div.myButton button {
+                font-size: 13px;
+                display: inline-block;
+                padding: 1px 5px;
+                text-decoration: none;
+                background: var(--button-color-background);
+                border: none;
+                border-left: solid 6px var(--button-color-left);
+                color: var(--button-color-text);
+                font-weight: bold;
+                box-shadow: 0px 1px 1px var(--button-color-box-shadow);
+            }
+
+            .myButton button:hover {
+                color: var(--button-color-hover-text);
+                background: var(--button-color-hover-background);
+                border-left: solid 6px var(--button-color-hover-left);
+            }
+
+            .myButton button:active {
+                box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+                transform: translateY(2px);
+            }
+
+            #hintbtn_concept,
+            #hintbtn_sentence,
+            #hintbtn_ldoce,
+            #hintbtn_image {
+                padding-right: 5px;
+                padding-left: 5px;
+                margin: 1px;
+            }
+
+            button#copybtn {
+                border-radius: 8px;
+                padding-right: 8px;
+                padding-left: 8px;
+            }
+
+            /* =========== frame&button↑ =========== */
+
+
+
+
+            /* ========= tree構造↓ ========== */
+            .tree ul li ul {
+                margin-top: .3em;
+                margin-bottom: .0em;
+                margin-left: 48px;
+            }
+
+            .tree ul li ul li {
+                margin-bottom: .0em;
+                position: relative;
+            }
+
+            .tree ul li ul li::before {
+                content: "";
+                position: absolute;
+                top: -0.5em;
+                left: -16px;
+                width: 10px;
+                height: calc(100% + .75em);
+                border-left: 1px solid #3972b2;
+            }
+
+            .tree ul li ul li:last-child::before {
+                height: calc(1em + .25em);
+            }
+
+            .tree ul li ul li::after {
+                content: "";
+                position: absolute;
+                top: .75em;
+                left: -16px;
+                width: 10px;
+                border-bottom: 1px solid #3972b2;
+            }
+
+            /* ========= tree構造↑ ========== */
+
+
+
+            /*====================== ツールボックス↓ ======================*/
+            .widMenu {
+                position: relative;
+                z-index: 20;
+            }
+
+            details {
+                position: relative;
+                text-align: left;
+                height: 18px;
+                transition: 0.5s;
+            }
+
+            .MenuTable {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                font-size: 13px;
+            }
+
+            select {
+
+                /* styling */
+                background-color: white;
+                border: thin solid blue;
+                border-radius: 4px;
+                display: inline-block;
+                font: inherit;
+                line-height: 1.5em;
+                padding: 0.5em 3.5em 0.5em 1em;
+
+                /* reset */
+
+                margin: 0;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+
+
+            /* arrows */
+
+            select.classic {
+                background-image:
+                    linear-gradient(45deg, transparent 50%, blue 50%),
+                    linear-gradient(135deg, blue 50%, transparent 50%),
+                    linear-gradient(to right, skyblue, skyblue);
+                background-position:
+                    calc(100% - 20px) calc(1em + 2px),
+                    calc(100% - 15px) calc(1em + 2px),
+                    100% 0;
+                background-size:
+                    5px 5px,
+                    5px 5px,
+                    2.5em 2.5em;
+                background-repeat: no-repeat;
+                width: 100%;
+            }
+
+            select.classic:focus {
+                background-image:
+                    linear-gradient(45deg, white 50%, transparent 50%),
+                    linear-gradient(135deg, transparent 50%, white 50%),
+                    linear-gradient(to right, gray, gray);
+                background-position:
+                    calc(100% - 15px) 1em,
+                    calc(100% - 20px) 1em,
+                    100% 0;
+                background-size:
+                    5px 5px,
+                    5px 5px,
+                    2.5em 2.5em;
+                background-repeat: no-repeat;
+                border-color: grey;
+                outline: 0;
+            }
+
+            select:-moz-focusring {
+                color: transparent;
+                text-shadow: 0 0 0 #000;
+            }
+
+
+            /*====================== ウィジェット風メニュー検索↓ ======================*/
+            .widgetMenu {
+                border: 1px solid rgb(7, 122, 158);
+                text-align: left;
+                border-radius: 0;
+                overflow: hidden;
+            }
+
+            .widgetMenu-title {
+                color: white;
+                background: gray;
+                padding: 4px 0.4em;
+                font-weight: bold;
+                font-size: 18px;
+                border: solid 1px white;
+            }
+
+
+            .widgetMenu ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .widgetMenu ul li {
+                background: white;
+                padding: 0;
+                margin: 0;
+                font-size: 0.9em;
+            }
+
+            .widgetMenu ul li a {
+                color: rgb(7, 122, 158);
+                font-weight: bold;
+                text-decoration: none;
+                display: block;
+                padding: 0.4em 1.2em;
+                border-bottom: 1px dotted rgb(7, 122, 158);
+            }
+
+            .widgetMenu ul li:last-child a {
+                border: none;
+            }
+
+
+            #PC_link table,
+            #Mobile_link table {
+                margin: 0 0 10px 0;
+                background: #5EB3B3;
+                box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.29);
+                overflow: hidden;
+            }
+
+            #PC_link table a,
+            #Mobile_link a {
+                text-decoration: none;
+                color: black;
+            }
+
+            /*====================== ウィジェット風メニュー検索↑ ======================*/
+
+
+            /* ========== 検索窓↓ ============ */
+            .searchword {
+                font-family: var(--font-family-searchword);
+                font-weight: bold;
+            }
+
+            #form5 {
+                position: relative;
+                margin-bottom: 20px;
+            }
+
+            #sbox5 {
+                outline: 0;
+                height: 36px;
+                padding: 0 10px;
+                position: absolute;
+                right: 0;
+                width: 72%;
+                max-width: 90%;
+                border-radius: 1px;
+                background: #eee;
+                font-size: 18px;
+            }
+
+            #sbtn5 {
+                width: 20%;
+                height: 40px;
+                position: absolute;
+                left: 0;
+                border-radius: 1px;
+                background: rgb(7, 122, 158);
+                color: #fff;
+                font-weight: bold;
+                font-size: 16px;
+                border: none;
+            }
+
+            #sbtn5:hover {
+                background: #eee;
+                color: #7fbfff;
+            }
+
+            @media screen and (max-width:450px) {
+                #form5 {
+                    display: none;
+                }
+
+                .searchwindow {
+                    display: none;
+                }
+            }
+
+            /* ========== 検索窓↑ ============ */
+            /*====================== ツールボックス↑ ======================*/
+
+
+
+            /*====================== 写真ボックス↓ ======================*/
+            .designLayoutBox {
+                display: block;
+                border: 3px solid rgb(7, 122, 158);
+                padding: 0.1em;
+                margin: 0px 0px 15px 0px;
+                position: relative;
+                text-align: center;
+                overflow-y: scroll;
+                border-radius: 10px;
+                background: #fff;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            }
+
+            .fixbox {
+                position: static;
+            }
+
+            .fixbox::after {
+                position: absolute;
+                content: '';
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                box-shadow: inset 0 0 40px 4px black;
+                border-radius: 0px;
+            }
+
+            .designLayoutBox> :last-child {
+                margin-bottom: 0;
+            }
+
+            .container img {}
+
+            .container,
+            .container>img {
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+
+            .container {
+                position: relative;
+                display: inline-block;
+                font-size: 0;
+                line-height: 0;
+            }
+
+            .container::after {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                box-shadow: inset 0px 0px 10px 8px #fff;
+                content: " ";
+            }
+
+            #photobox {}
+
+            #photobox img {
+                display: inline-block;
+                min-width: 300px;
+                width: 80%;
+                min-height: 170px;
+                max-width: 80%;
+                max-height: 400px;
+            }
+
+            #photobox_hint img {
+                display: inline-block;
+                min-width: 300px;
+                width: 80%;
+                min-height: 170px;
+                max-width: 80%;
+                max-height: 400px;
+            }
+
+            @media screen and (min-width:500px) {
+                #photobox {}
+
+                .fixbox {}
+            }
+
+            /*====================== 写真ボックス↑ ======================*/
+
+
+
+            /*====================== 数式↓ ======================*/
+            .formula {
+                border: solid 1px;
+                overflow-x: auto; //横スクロール対応
+                font-size: 18px;
+                font-family: Times, Osaka;
+            }
+
+            @media screen and (max-width:450px) {
+                .MathJax * {
+                    font-size: 70%;
+                }
+            }
+
+            /*====================== 数式↑ ======================*/
+
+
+
+            /*====================== 英単語用↓ ======================*/
+            .theNumOfMean {
+                font-family: var(--font-family-theNumOfMean);
+                font-size: 18px;
+                font-weight: bold;
+                border: 1px solid;
+                border-radius: 5px;
+                margin: 0px;
+                padding: 0px 3px;
+                vertical-align: 1px;
+            }
+
+            .spellfont {
+                /* 見出しフォント */
+                font-family: var(--font-family-spellfont);
+                font-size: 24px;
+                padding: 4px 0px 0px 0px;
+            }
+
+            #grammar {
+                text-align: left;
+                font-size: 16px;
+                font-family: var(--font-family-grammar);
+                font-feature-settings: "liga"1;
+            }
+
+            .exampleSentence {
+                /* 例文 */
+                font-family: var(--font-family-exampleSentence);
+                font-size: 20px;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                border-left: 5px solid #077A9E;
+                padding-left: 8px;
+                padding-top: 0ox;
+                margin-top: 5px;
+                margin-left: 0px;
+            }
+
+            .exampleSentence font {
+                font-weight: bold;
+                text-shadow: 1px 2px 3px #808080;
+            }
+
+            .nightMode .exampleSentence font {
+                text-shadow: 1px 2px 3px black;
+            }
+
+            .exampleSentence i {
+                color: #C33187;
+                font-weight: bold;
+            }
+
+            .nightMode .exampleSentence i {
+                color: #A3CA50;
+            }
+
+            .exampleSentence u {
+                color: #7750CA;
+                font-weight: bold;
+            }
+
+            .nightMode .exampleSentence u {
+                color: #F3CD53;
+            }
+
+            #etymology {
+                font-size: 16px;
+                border-left: 5px solid gray;
+            }
+
+            .exampleSentence.description {
+                font-size: 16px;
+                border-left: 5px solid red;
+            }
+
+            .exampleSentence.description u {
+                color: black;
+                font-weight: normal;
+            }
+
+            .nightMode .exampleSentence.description u {
+                color: white;
+            }
+
+
+            /*========= 文字装飾改造 =========*/
+            font[color="#30d158"] {
+                color: #41a678;
+            }
+
+            .nightMode font[color="#30d158"] {
+                color: #30d158;
+            }
+
+            
+            font[color="#0a84ff"] {
+                color: #41a678;
+            }
+
+            .nightMode font[color="#0a84ff"] {
+                color: #0a84ff;
+            }
+
+            font[color="#ff9f0a"] {
+                color: #ff9f0a;
+            }
+
+            .nightMode font[color="#ff9f0a"] {
+                color: #ff9f0a;
+            }
+
+            .meaning b {
+                font-weight: bold;
+                text-shadow: 1px 2px 3px #808080;
+            }
+
+            .nightMode .meaning b {
+                text-shadow: 1px 2px 3px black;
+            }
+
+            .meaning font {
+                font-weight: bold;
+            }
+
+            .meaning i {
+                color: #C33187;
+                font-weight: bold;
+            }
+
+            .nightMode .meaning i {
+                color: #A3CA50;
+            }
+
+
+            /*========= 文字装飾改造↓ =========*/
+            #sourceSentence {
+                font-family: Times, Osaka;
+                font-size: 19px;
+                line-height: 1.1;
+            }
+
+            #sourcePhoto {
+                border: solid 1px;
+                max-width: 100%;
+                overflow-x: auto;
+            }
+
+            .usageForm {
+                color: red;
+                font-family: georgia;
+                font-size: 18px;
+            }
+
+            .nightMode .usageForm {
+                color: orange;
+            }
+
+            .similar {
+                font-family: var(--font-family-similar);
+                font-feature-settings: "liga"1;
+                margin-top: 5px;
+                white-space: nowrap;
+                overflow-x: scroll;
+            }
+
+            .symbol {
+                font-size: 23px;
+                font-family: var(--font-family-symbol);
+                margin: 0px;
+                padding: 0px;
+            }
+
+            /*========= wordtypeによる装飾↓ =========*/
+            .noun:before,
+            .NP:before,
+            .nounphrase:before {
+                font-family: georgia;
+                font-size: 17px;
+                content: "NP";
+                background: white;
+                color: red;
+                padding: 0px 4px 0px 4px;
+                margin: 0px;
+                border-radius: 5px;
+                vertical-align: 1px;
+            }
+
+            /*========= wordtypeによる装飾↑ =========*/
+            /*====================== 英単語用↑ ======================*/
+
+
+
+            /*====================== 独自テキスト装飾↓ ======================*/
+            .boxwrapper {
+                border: dashed 1px;
+                padding: 4px;
+            }
+
+            .grayoutMeaning {
+                color: #656565;
+                font-size: 12px;
+            }
+
+            .nightMode .grayoutMeaning {
+                color: #A0A0A0;
+                font-size: 12px;
+            }
+
+            .grayoutSentence {
+                color: #656565; //for paper
+                //color: #A0A0A0; //for non paper
+            }
+
+            .nightMode .grayoutSentence {
+                color: #A0A0A0;
+            }
+
+            .gray {
+                color: #656565;
+            }
+
+            .nightMode .gray {
+                color: #A0A0A0;
+            }
+
+            .collection {
+                /* ========= 例文内部の未知ワード  ========= */
+                font-family: var(--font-family-collection);
+                font-size: 17px;
+                padding: 3px 0px 3px 10px;
+                margin: 8px 0px 0px 10px;
+                border: solid 1px;
+                border-radius: 6px;
+            }
+
+            /*====================== 独自テキスト装飾↑ ======================*/
+
+
+
+            /* ========================== ウィンドウサイズ↓ ========================== */
+            @media screen and (min-width:500px) {
+                .card {
+                    font-size: 22px;
+                    background-color: white;
+                    width: 94%;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    padding-top: 20px;
+                    padding-bottom: 100px;
+                }
+
+                .numberingset .managementNumber {
+                    font-size: 25px;
+                }
+
+                .spellfont {
+                    font-size: 30px;
+                }
+
+                .theNumOfMean {
+                    font-size: 20px;
+                    padding: 0px 4px;
+                    border: 1px solid;
+                    vertical-align: 2px;
+                }
+
+                .symbol {
+                    font-size: 28px;
+                }
+
+                .noun:before,
+                .NP:before,
+                .nounphrase:before {
+                    font-size: 19px;
+                    vertical-align: 2px;
+                }
+
+                .mainContents,
+                .fieldCategory {
+                    font-size: 22px;
+                }
+
+                .exampleSentence,
+                #sourceSentence {
+                    font-size: 24px;
+                }
+
+                .exampleSentence.description,
+                #etymology {
+                    font-size: 20px;
+                }
+
+                .usageForm {
+                    font-size: 22px;
+                }
+
+                .normTABLE td {
+                    padding: 0px 5px 0px 30px;
+                }
+
+                .normTABLE th {
+                    padding: 0px 5px 0px 0px;
+                    width: 50px;
+                }
+
+                .managementNumber {
+                    font-size: 15px;
+                }
+
+                .whatIsSubdeck,
+                .whenCreated,
+                .cInformation {
+                    font-size: 18px;
+                }
+
+                .peripheral {
+                    font-size: 16px;
+                }
+
+                #grammar {
+                    font-size: 18px;
+                }
+
+                .frame {
+                    height: 600px;
+                }
+
+                #Mobile_link {
+                    display: none;
+                }
+
+                .mac #ttsaudio {
+                    transform: scale(0.6);
+                    bottom: -10px;
+                    left: -6px;
+                }
+            }
+
+            @media screen and (min-width:900px) {
+
+                /* 2カラム作成 */
+                .nobreak {
+                    break-inside: avoid-column;
+                }
+
+                .multicolumnbox {
+                    column-count: 2;
+                }
+            }
+
+            @media screen and (max-width:500px) {
+                .editableTag {
+                    display: none;
+                }
+
+                #PC_link {
+                    display: none;
+                }
+
+                .responsivebreak {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width:900px) {
+                .responsivebreak {
+                    display: none;
+                }
+            }
+
+            /* ========================== ウィンドウサイズ↑ ========================== */
+
+            /*====================== css終わり↑ ======================*/

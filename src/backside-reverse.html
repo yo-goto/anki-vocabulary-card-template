@@ -1,0 +1,473 @@
+{{FrontSide}}
+
+<hr>
+
+<!-- ここから下はbackside.htmlの部分のsectionと同じ -->
+<section>
+
+    <!-- ====================== 発音記号 ====================== -->
+    {{#Symbol}}
+    <div class="symbol no_br" style="padding: 0px; margin: 0px;">
+        {{Symbol}}
+    </div>
+    {{/Symbol}}
+
+    <div class="multicolumnbox" style="margin-top: 0px;">
+
+        <!-- ====================== メイン1↓ ====================== -->
+        <div class="nobreak">
+            <div class="mainContents" style="margin-top: 4px;">
+                <table class="categorizeBoxTABLE">
+                    <tbody>
+                        <tr>
+                            <th>品詞</th>
+                            <td class="wordclass">
+                                <span class="no_br">
+                                    {{#WordType}}({{WordType}}){{/WordType}}
+                                </span><br>
+                                <span class="no_br">
+                                    {{#DetailType}} [<b>{{DetailType}}</b>]{{/DetailType}}
+                                </span>
+                            </td>
+                        </tr>
+                        {{#Tags}}
+                        <tr>
+                            <th>概念</th>
+                            <td class="taglist">
+                                <span id="concepts">
+                                    {{Tags}}
+                                </span>
+                                <span id="concepts2">
+                                </span>
+                            </td>
+                        </tr>
+                        {{/Tags}}
+                        {{#Keywords}}
+                        <tr>
+                            <th>Key</th>
+                            <td>
+                                {{Keywords}}
+                            </td>
+                        </tr>
+                        {{/Keywords}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <br class="responsivebreak">
+
+        {{#WordForms}}
+        <div class="mainContents">
+            <table class="normTABLE">
+                <tr>
+                    <th><span class="fieldCategory" style="display: inline;">形態 </span></th>
+                    <td>
+                        <span class="usageForm" style="margin-left: 15px;">
+                            {{WordForms}}
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {{/WordForms}}
+
+
+        <!-- ====================== メイン1-2 ====================== -->
+        {{#Meaning_jp}}
+        <div class="mainContents meaning nobreak">
+            <span class="fieldCategory">語義(日)</span>
+            <br>
+            {{#StrikeJap}}
+            <div class="grayoutMeaning">
+                {{/StrikeJap}}
+                {{edit:Meaning_jp}}
+                {{#StrikeJap}}
+            </div>
+            {{/StrikeJap}}
+        </div>
+        {{/Meaning_jp}}
+
+        {{#Meaning_en}}
+        <div class="mainContents meaning" id="englishMEANING">
+            <span class="fieldCategory nobreak">語義(英)</span>
+            <br>
+            {{edit:Meaning_en}}
+        </div>
+        {{/Meaning_en}}
+
+    </div>
+
+    <hr>
+
+    <div class="multicolumnbox" style="margin-top: 0px; margin-bottom: 0px;">
+
+        {{#Object}}
+        <div class="mainContents">
+            <span class="fieldCategory">目的語</span>
+            <br>
+            {{Object}}
+        </div>
+        {{/Object}}
+
+        {{#LIst}}
+        <div class="mainContents">
+            <span class="fieldCategory">リスト</span>
+            <br>
+            {{LIst}}
+        </div>
+        {{/LIst}}
+
+        {{#Grammar}}
+        <div class="mainContents meaning" id="grammar">
+            <span class="fieldCategory">文法</span><br>
+            {{Grammar}}
+        </div>
+        {{/Grammar}}
+
+        {{#Collocation}}
+        <div class="mainContents">
+            <span class="fieldCategory">コロケーション</span>
+            <br>
+            {{Collocation}}
+        </div>
+        {{/Collocation}}
+
+        {{#Description}}
+        <div class="mainContents" style="margin-top: 0px;">
+            <span class="fieldCategory">詳細</span>
+            <br>
+            <div class="exampleSentence description">
+                {{edit:Description}}
+            </div>
+        </div>
+        {{/Description}}
+
+        {{#ExampleSentence}}
+        <div class="mainContents">
+            <span class="fieldCategory">例文</span>
+            <br>
+            <div class="exampleSentence">
+                {{ExampleSentence}}
+            </div>
+        </div>
+        {{/ExampleSentence}}
+
+        {{#SourceS}}
+        <div class="mainContents">
+            <span class="fieldCategory">ソース文</span>
+            <br>
+            <div class="exampleSentence" id="sourceSentence">
+                {{SourceS}}
+            </div>
+        </div>
+        {{/SourceS}}
+
+        {{#SourcePhoto}}
+        <div class="mainContents">
+            <span class="fieldCategory">ソースイメージ</span>
+            <br>
+            <div id="sourcePhoto">
+                {{SourcePhoto}}
+            </div>
+        </div>
+        {{/SourcePhoto}}
+
+
+
+
+        {{#Source_Twitter}}
+        <script async type="text/javascript" src="_twitter_widgets.js" charset="utf-8"></script>
+        <div class="twitter-wrap nobreak">
+            {{Source_Twitter}}
+        </div>
+        {{/Source_Twitter}}
+
+        {{#Etymology}}
+        <div class="mainContents">
+            <span class="fieldCategory">語根､形態論</span>
+            <div class="exampleSentence" id="etymology">
+                {{edit:Etymology}}</div>
+        </div>
+        {{/Etymology}}
+
+        {{#Peripheral}}
+        <div class="mainContents">
+            <span class="fieldCategory">周辺知識 </span>
+            <br>
+            <div class="peripheral">
+                {{Peripheral}}
+            </div>
+        </div>
+        {{/Peripheral}}
+
+        <hr style="padding: 0px; margin: 0xp;">
+
+
+
+        <!-- ====================== メイン2↓ ====================== -->
+        {{#Derivative}}
+        <div class="mainContents nobreak">
+            <span class="fieldCategory">派生語</span>
+            <br>
+            <div class="similar">
+                {{edit:Derivative}}</div>
+        </div>
+        {{/Derivative}}
+
+        {{#Thesaurus}}
+        <div class="mainContents">
+            <span class="fieldCategory">シソーラス</span>
+            <br>
+            <div class="similar">
+                {{edit:Thesaurus}}</div>
+        </div>
+        {{/Thesaurus}}
+
+        {{#SynAnt}}
+        <div class="mainContents">
+            <span class="fieldCategory">同義語､反意語</span>
+            <br>
+            {{SynAnt}}
+        </div>
+        {{/SynAnt}}
+
+        {{#SpellSimilar}}
+        <div class="mainContents nobreak">
+            <span class="fieldCategory">スペルの似た語</span>
+            <br>
+            <div class="similar">
+                {{edit:SpellSimilar}}
+            </div>
+        </div>
+        {{/SpellSimilar}}
+
+
+        <!-- ====================== 追加情報↓ ====================== -->
+
+        <div class="editableTag nobreak" style="border-color: #46534d;">
+            <div class="realtags no_br">{{edit:Tags}}</div>
+        </div>
+
+
+        <div class="editableTag nobreak" style="border-color: #9cb2b3;">
+            <div class="realtags no_br" style="margin: 0px; padding: 0px;">{{clickable:Tags}}</div>
+        </div>
+
+        {{#PhotoImage}}
+        <div class="designLayoutBox nobreak">
+            <div class="fixbox" style="padding-top: 5px; width: 100%;">
+                <figure class="container" id="photobox">
+                    {{PhotoImage}}
+                </figure>
+            </div>
+        </div>
+        {{/PhotoImage}}
+
+        <div id="PC_link" class="nobreak">
+            <table class="infobox">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://www.google.co.jp/search?q={{Word}}&tbm=isch">画像検索</a>
+                        </td>
+                        <td>
+                            <a href="https://giphy.com/search/{{Word}}">GIPHY</a>
+                        </td>
+                        <td>
+                            <a href="dict://{{Word}}">辞書.app</a>
+                        </td>
+                        <td><a href="mkdictionaries:///?text={{Word}}">物書堂</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="Mobile_link" class="nobreak">
+            <table class="infobox">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://www.google.co.jp/search?q={{Word}}&tbm=isch">画像検索</a>
+                        </td>
+                        <td>
+                            <a href="giphy:///search/{{Word}}">Giphy</a>
+                        </td>
+                        <td>
+                            <a href="mkdictionaries:///?text={{Word}}">物書堂</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="widMenu widMenu nobreak">
+            <table class="normTABLE typeMENU" id="whitesec">
+                <tbody>
+                    <tr>
+                        <td>
+                            <details>
+                                <summary class="widgetMenu-title" style="border-radius: 5px 0 0 5px;">PC</summary>
+                                <nav class="widgetMenu">
+                                    <ul>
+                                        <li><a href="https://www.google.co.jp/search?q={{Word}}&tbm=isch">画像検索</a>
+                                        </li>
+                                        <li><a href="https://imgur.com/search/score?q={{Word}}">imgur</a></li>
+                                        <li><a href="https://giphy.com/search/{{Word}}">GIPHY</a></li>
+                                        <li><a
+                                                href="https://www.gettyimages.co.jp/写真/{{Word}}?family=creative&phrase={{Word}}&sort=mostpopular#license">getty
+                                                image</a></li>
+                                        <li><a href="https://www.google.com/search?q={{Word}}">文字検索</a></li>
+                                        <li><a href="https://www.ldoceonline.com/jp/dictionary/{{Word}}">LDOCE
+                                                online</a></li>
+                                        <li><a href="https://eow.alc.co.jp/search?q={{Word}}">英辞郎</a></li>
+                                        <li><a href="https://www.etymonline.com/search?q={{Word}}">Etymology</a>
+                                        </li>
+                                        <li><a href="https://www.vocabulary.com/dictionary/{{Word}}">Vocabulary.com</a>
+                                        </li>
+                                        <li><a href="https://www.thesaurus.com/browse/{{Word}}">Thesaurus.com</a>
+                                        </li>
+                                        <li><a href="dict://{{Word}}">辞書.app</a></li>
+                                        <li><a href="http://en.wikipedia.org/wiki/{{Word}}">Wikipedia En</a></li>
+                                        <li><a href="https://www.playphrase.me/#/search?q={{Word}}">PlayPhrase</a>
+                                        </li>
+                                        <li><a href="https://twitter.com/search?q={{Word}}  lang:en">Twitter.com</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </details>
+                        </td>
+                        <td>
+                            <details>
+                                <summary class="widgetMenu-title">Moblie</summary>
+                                <nav class="widgetMenu">
+                                    <ul>
+                                        <li><a href="https://www.google.co.jp/search?q={{Word}}&tbm=isch">画像</a>
+                                        </li>
+                                        <li><a href="giphy:///search/{{Word}}">Giphy</a></li>
+                                        <li><a href="https://www.google.com/search?q={{Word}}">検索</a></li>
+                                        <li><a href="dict://{{Word}}">LDOCE</a></li>
+                                        <li><a href="mkdictionaries:///WISDOM2?text={{Word}}">物書堂</a></li>
+                                        <li><a href="wikilinks:///search?type=wikipedia&text={{Word}}">WIKILINKS</a>
+                                        </li>
+                                        <li><a href="http://en.wikipedia.org/wiki/{{Word}}">Wikipedia En</a></li>
+                                        <li><a href="twitter:///search?query={{Word}} lang:en">Twitter</a></li>
+                                    </ul>
+                                </nav>
+                            </details>
+                        </td>
+                        <td>
+                            <details>
+                                <summary class="widgetMenu-title" style="border-radius: 0 5px 5px 0;">Frame
+                                </summary>
+                                <nav class="widgetMenu">
+                                    <ul>
+                                        <li><button id="searchbtn" class="deletebox widgetMenu-title">Bing
+                                                Search</button></li>
+                                        <li><button id="etymobtn" class="deletebox widgetMenu-title">Etymology</button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </details>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ======================検索窓↓ ====================== -->
+        <div class="searchwindow">
+            <form id="form5" method="get" action="http://www.google.co.jp/search">
+                <input class="searchword" id="sbox5" type="text" name="q" placeholder="キーワードを入力" />
+                <input id="sbtn5" type="hidden" name="ie" value="UTF-8">
+                <input id="sbtn5" type="hidden" name="oe" value="UTF-8">
+                <input id="sbtn5" type="hidden" name="hl" value="ja">
+                <input id="sbtn5" type="submit" name="btnG" value="検索" />
+            </form>
+        </div>
+        <br>
+        <!-- ======================検索窓↑ ====================== -->
+
+        <!-- ========= iframe↓ ========== -->
+        <div id="mainword2" style="display: none;">
+            {{Word}}</div>
+        <div id="mainword" style="display: none;">
+            {{Word}}</div>
+        <div id="pre_frame">
+        </div>
+        <!-- ========= iframe↑ ========== -->
+
+    </div>
+
+
+    <script type="text/javascript">
+        var ele = document.getElementById("concepts");
+        if (ele != null) {
+            var str = ele.textContent;
+            var result = str.replace(/en::/g, '').split(/\s+/);
+            var onetag, sp;
+            var newELE = document.getElementById("concepts2");
+
+            for (var k = 0; k < result.length; k++) {
+                if (k != 0 && k != (result.length - 1)) {
+                    onetag = result[k];
+                    sp = document.createElement(`span`);
+                    sp.className = "tagFORM";
+                    sp.textContent = onetag;
+                    newELE.appendChild(sp);
+                    ele.innerHTML = null;
+                }
+            }
+        }
+    </script>
+
+
+    <script>
+        var copyText = document.getElementById('mainword2');
+        function execCopy2(string) {
+            var temp = document.createElement('span');
+            temp.textContent = string;
+
+            var s = temp.style;
+            s.position = 'fixed';
+            s.left = '-100%';
+
+            document.body.appendChild(temp);
+            document.getSelection().selectAllChildren(temp);
+            var result = document.execCommand('copy');
+            document.body.removeChild(temp);
+            // true なら実行できている falseなら失敗か対応していないか
+            return result;
+        }
+        var ctext = copyText.textContent.toString();
+        execCopy2(ctext);
+    </script>
+
+    <!-- ====================== iframe↓ ====================== -->
+    <script type="text/javascript">
+        var search = document.getElementById('searchbtn');
+        var etymobtn = document.getElementById('etymobtn');
+        // var ele = document.getElementById("mainword"); 
+        var newele = document.getElementById("pre_frame");
+        var n_div, onetag;
+
+        search.addEventListener('click', function () {
+            n_div = document.createElement(`div`);
+            onetag = "<iframe class='frame' src='http://www.bing.com/images/search?q={{Word}}'>" + "</iframe>";
+            n_div.className = 'ac_frame';
+            n_div.innerHTML = onetag;
+            newele.appendChild(n_div);
+        });
+        etymobtn.addEventListener('click', function () {
+            n_div = document.createElement(`div`);
+            onetag = "<iframe class='frame' src='https://www.etymonline.com/search?q={{Word}}' sandbox>" + "</iframe>";
+            n_div.className = 'ac_frame';
+            n_div.innerHTML = onetag;
+            newele.appendChild(n_div);
+        });
+    </script>
+    <!-- ====================== iframe↑ ====================== -->
+
+
+    <!-- ====================== 終わり↑ ====================== -->
+</section>

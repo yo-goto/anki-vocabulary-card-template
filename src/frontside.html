@@ -1,0 +1,235 @@
+<!-- 表のテンプレート -->
+<section>
+
+    <!-- ====================== カテゴリー情報 ====================== -->
+    {{#Comment}}
+    <div class="comment">
+        <p class="balloon1-left">
+            <span>
+                {{Comment}}
+            </span>
+        </p>
+    </div>
+    <br>
+    {{/Comment}}
+
+    <div>
+        <table class="infobox" style="table-layout: fixed;">
+            <tr class="cellbox">
+                <td>
+                    <span class="whatIsSubdeck">
+                        {{Source}}
+                    </span>
+                </td>
+                <td style="text-align: center;">
+                    <span class="whenCreated no_br">
+                        {{CreatedDay}}
+                    </span>
+                </td>
+                <td>
+                    <span class="cInformation no_br" style="font-weight: bold; color: red; text-align: center;">
+                        {{edit:ImpPoint}}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="numberingset">
+        {{#Rank}}
+        <span class="managementNumber no_br">
+            Rank:{{Rank}}
+        </span>
+        {{/Rank}}
+        {{#Number}}
+        <span class="managementNumber no_br">
+            #{{Number}}
+        </span>
+        {{/Number}}
+    </div>
+
+
+    <!-- ====================== 単語と音声↓ ====================== -->
+    <div>
+        <span class="spellfont no_br" id="clipword">{{Word}}</span>
+        <span class="{{WordType}}"></span>
+        {{#TheNumOfMean}}
+        <span class="theNumOfMean">{{TheNumOfMean}}</span>
+        {{/TheNumOfMean}}
+        <span id="audio-btn">{{tts en_US voices=Apple_Alex:Word}}</span>
+    </div>
+    <!-- ====================== 単語と音声↑ ====================== -->
+
+
+
+    <!-- ====================== ヒントボタン↓ ====================== -->
+    <div class="myButton">
+        <button id="hintbtn_concept">Concept</button>
+        <button id="hintbtn_sentence">Example</button>
+        <button id="hintbtn_ldoce">LDOCE</button>
+        <button id="hintbtn_image">Image</button>
+        <button id="copybtn">Cp</button>
+    </div>
+
+    <hr style="margin-bottom: 0px;">
+
+
+    <div style="margin-top: 5px;">
+        <div id="hintzone_concept"></div>
+        <div id="hintzone_sentence"></div>
+        <div id="hintzone_ldoce"></div>
+        <div id="hintzone_image"></div>
+    </div>
+
+    <div id="senINFO" style="display: none;">
+        {{ExampleSentence}}{{#ExampleSentence}}{{#SourceS}}<br>
+        <hr>{{/SourceS}}{{/ExampleSentence}}
+        {{SourceS}}
+    </div>
+    <div id="checkExS" style="display: none;">{{ExampleSentence}}</div>
+    <div id="defINFO" style="display: none;">{{Meaning_en}}</div>
+    <div id="getIMAGE" style="display: none;">{{PhotoImage}}</div>
+
+
+    <script type="text/javascript">
+        //(1)変数の設定
+        var hintbtn_concept = document.getElementById("hintbtn_concept");
+        var newele_concept = document.getElementById("hintzone_concept");
+
+        var hintbtn_sentence = document.getElementById("hintbtn_sentence");
+        var newele_sentence = document.getElementById("hintzone_sentence");
+
+        var hintbtn_ldoce = document.getElementById("hintbtn_ldoce");
+        var newele_ldoce = document.getElementById("hintzone_ldoce");
+
+        var senINFO = document.getElementById("senINFO");
+        var checkExS = document.getElementById("checkExS");
+        var defINFO = document.getElementById("defINFO");
+
+        var exlist_1 = defINFO.getElementsByClassName("EXAMPLE");
+        var exlist_2 = defINFO.getElementsByClassName("exampleSentence");
+        var childEX_1 = exlist_1[0];
+        var childEX_2 = exlist_2[0];
+
+        var hintbtn_image = document.getElementById("hintbtn_image");
+        var newele_image = document.getElementById("hintzone_image");
+        var getIMAGE = document.getElementById("getIMAGE");
+
+        // (2)コンテンツがない場合にボタン背景色がグレーアウト
+        if (!"{{Tags}}") {
+            hintbtn_concept.style.background = "gray";
+        }
+
+
+        if (!(childEX_1 || childEX_2)) {
+            hintbtn_ldoce.style.background = "gray";
+        }
+        if (!getIMAGE.innerHTML) {
+            hintbtn_image.style.background = "gray";
+        }
+        if (!checkExS.innerHTML) {
+            hintbtn_sentence.style.background = "gray";
+        }
+
+        //(3)イベント処理
+        hintbtn_concept.addEventListener('click', function () {
+            var n_div, onetag1;
+            if ("{{Tags}}") {
+                n_div1 = document.createElement("div");
+                onetag1 = "{{Tags}}";
+                n_div1.className = 'taglist';
+                n_div1.innerHTML = onetag1;
+                newele_concept.appendChild(n_div1);
+            }
+        }, {
+            once: true
+        });
+        hintbtn_sentence.addEventListener('click', function () {
+            var n_div2, onetag2;
+            if (senINFO.textContent) {
+                n_div2 = document.createElement("div");
+                onetag2 = "<div class='exampleSentence'>" + senINFO.innerHTML + "</div>";
+                //タグが色々入ってると何故か取得できなくなるからテキストでとる
+                n_div2.className = 'mainContents';
+                n_div2.innerHTML = onetag2;
+                newele_sentence.appendChild(n_div2);
+            }
+        }, {
+            once: true
+        });
+        hintbtn_ldoce.addEventListener('click', function () {
+            var n_div3, onetag3;
+            var n_div4, onetag4;
+            if (exlist_1) {
+                for (var k = 0; k < exlist_1.length; k++) {
+                    var listele = exlist_1[k];
+                    n_div3 = document.createElement("div");
+                    onetag3 = "<div class='exampleSentence'>" + (k + 1) + ") " + listele.innerHTML + "</div>";
+                    n_div3.className = 'mainContents';
+                    n_div3.innerHTML = onetag3;
+                    newele_ldoce.appendChild(n_div3);
+                }
+            }
+            if (exlist_2) {
+                for (var k = 0; k < exlist_2.length; k++) {
+                    var listele = exlist_2[k];
+                    n_div4 = document.createElement("div");
+                    onetag4 = "<div class='exampleSentence'>" + (k + 1) + ") " + listele.innerHTML + "</div>";
+                    n_div4.className = 'mainContents';
+                    n_div4.innerHTML = onetag4;
+                    newele_ldoce.appendChild(n_div4);
+                }
+            }
+        }, {
+            once: true
+        });
+
+        hintbtn_image.addEventListener('click', function () {
+            var n_div, onetag;
+            if (getIMAGE.innerHTML) {
+                n_div = document.createElement("div");
+                onetag = "<div class='fixbox' style='padding-top: 5px; text-align: center; width: 100%; overflow-x: scroll;'>" + "<figure class='container' id='photobox_hint'>" + getIMAGE.innerHTML + "</figure>" + "</div>";
+                n_div.className = 'designLayoutBox';
+                n_div.innerHTML = onetag;
+                newele_image.appendChild(n_div);
+            }
+        }, {
+            once: true
+        });
+    </script>
+    <!-- ====================== ヒントボタン↑ ====================== -->
+
+
+    <!-- ====================== コピーボタン↓ ====================== -->
+    <script type="text/javascript">
+        var copytext = document.getElementById('clipword');
+        var copybtn = document.getElementById('copybtn');
+
+        function execCopy(string) {
+            var temp = document.createElement('span');
+            temp.textContent = string;
+
+            var s = temp.style;
+            s.position = 'fixed';
+            s.left = '-100%';
+
+            document.body.appendChild(temp);
+            document.getSelection().selectAllChildren(temp);
+            var result = document.execCommand('copy');
+            document.body.removeChild(temp);
+            // true なら実行できている falseなら失敗か対応していないか
+            return result;
+        }
+
+        copybtn.addEventListener('click', function () {
+            ctext = copytext.textContent.toString();
+            execCopy(ctext);
+        }, {
+            once: false
+        });
+    </script>
+    <!-- ====================== コピーボタン↑ ====================== -->
+
+
+</section>
